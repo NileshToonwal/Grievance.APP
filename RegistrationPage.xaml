@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grievance.RegistrationPage"
+             Title="RegistrationPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <!--<Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />-->
+
+            <Label
+                Text="Register Screen"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="16"
+                HorizontalOptions="Center" />
+
+            <HorizontalStackLayout VerticalOptions="Center"
+                                   HorizontalOptions="FillAndExpand"
+                                   BackgroundColor="#e1e1e1"
+                                   Padding="10,0,10,0"
+                                   SemanticProperties.HeadingLevel="Level2">
+                <Entry
+                Text=""
+                Placeholder="Name"
+                HorizontalOptions="FillAndExpand"
+                    PlaceholderColor="Black"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Name"
+                FontSize="14"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout VerticalOptions="Center"
+                                   HorizontalOptions="FillAndExpand"
+                                   BackgroundColor="#e1e1e1"
+                                   Padding="10,0,10,0"
+                                   SemanticProperties.HeadingLevel="Level2">
+                <Entry
+                Text=""
+                Placeholder="PAN"
+                    PlaceholderColor="Black"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="PAN"
+                FontSize="14"
+                HorizontalOptions="FillAndExpand"/>
+                
+            </HorizontalStackLayout>
+            <HorizontalStackLayout VerticalOptions="Center"
+                                   HorizontalOptions="FillAndExpand"
+                                   BackgroundColor="#e1e1e1"
+                                   Padding="10,0,10,0"
+                                   SemanticProperties.HeadingLevel="Level2">
+                <Entry
+                Text=""
+                Placeholder="UCC CODE"
+                    PlaceholderColor="Black"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="UCC CODE"
+                FontSize="14"
+                HorizontalOptions="FillAndExpand"
+                 />
+
+            </HorizontalStackLayout>
+            <HorizontalStackLayout VerticalOptions="Center"
+                                   HorizontalOptions="FillAndExpand"
+                                   BackgroundColor="#e1e1e1"
+                                   Padding="10,0,10,0"
+                                   SemanticProperties.HeadingLevel="Level2">
+                <Entry
+                Text=""
+                Placeholder="MOBILE NUMBER"
+                    PlaceholderColor="Black"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="EMAIL ID"
+                FontSize="14"
+                HorizontalOptions="FillAndExpand"
+                 />
+
+            </HorizontalStackLayout>
+
+
+            <HorizontalStackLayout VerticalOptions="Center"
+                                   HorizontalOptions="FillAndExpand"
+                                   BackgroundColor="#e1e1e1"
+                                   Padding="10,0,10,0"
+                                   SemanticProperties.HeadingLevel="Level2">
+
+                
+                <Entry
+                Text=""
+                Placeholder="DOB"
+                    PlaceholderColor="Black"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="DOB"
+                FontSize="14"
+                HorizontalOptions="FillAndExpand"
+                 />
+                <DatePicker x:Name="myDatePicker" Format="D" />
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout VerticalOptions="Center"
+                                   HorizontalOptions="FillAndExpand"
+                                   BackgroundColor="#e1e1e1"
+                                   Padding="10,0,10,0"
+                                   SemanticProperties.HeadingLevel="Level2">
+                <Entry
+                Text=""
+                Placeholder="EMAIL ID"
+                    PlaceholderColor="Black"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="EMAIL ID"
+                FontSize="14"
+                HorizontalOptions="FillAndExpand"
+                 />
+
+            </HorizontalStackLayout>
+
+
+            <Button
+                x:Name="btn_register"
+                Text="Register"
+                SemanticProperties.Hint="Register the user when click"
+                
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

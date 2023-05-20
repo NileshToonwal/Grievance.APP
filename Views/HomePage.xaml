@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grievance.Views.HomePage"
+             Title="HomePage">
+    <SwipeView>
+        <SwipeView.LeftItems>
+            <SwipeItems>
+                <SwipeItem BackgroundColor="Green"
+                               IconImageSource="dotnet_bot.svg"
+                               
+                               Text="Archieve"/>
+                <SwipeItem BackgroundColor="red"
+                               IconImageSource="dotnet_bot.svg"
+                               
+                               Text="Delete"/>
+            </SwipeItems>
+        </SwipeView.LeftItems>
+        <Grid BackgroundColor="Gray"
+                  HeightRequest="50"
+                  WidthRequest="300">
+            <Label
+                    Text="Swipe Right Side"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+        </Grid>
+    </SwipeView>
+</ContentPage>
