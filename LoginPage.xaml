@@ -6,7 +6,7 @@
 
     <Grid BackgroundColor="White">
 
-        <Image Source="newarit.jpg" Aspect="AspectFill" Opacity="0.25" />
+        <Image Source="newarit.jpg" Aspect="AspectFill" Opacity="0.1" />
             
         
 
@@ -17,7 +17,7 @@
         </StackLayout>-->
 
 
-        <Grid RowSpacing="5" Grid.Row="1" Margin="20,20,20,0">
+        <Grid RowSpacing="5" Grid.Row="1" Margin="30,20,30,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
@@ -30,37 +30,43 @@
             <Label Grid.Row="1" Text="Wel Come!" HorizontalOptions="Center" FontSize="Title" FontAttributes="Bold" Padding="0" Margin="0"/>
             <Label Grid.Row="2" Text="Sing in to Continue"  HorizontalOptions="Center" FontSize="Subtitle"/>
 
-            <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
-                <Frame BackgroundColor="Transparent" BorderColor="LightGreen" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+            <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                <Frame BackgroundColor="Transparent" BorderColor="LightBlue" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="18">
                     <StackLayout Orientation="Horizontal">
                         <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                             <Image Source="rk.jpg" Aspect="AspectFill" Margin="0"/>
                         </Frame>
-                        <Entry Text="{Binding UserName}" Placeholder="Enter Pan" TextColor="Black" FontAttributes="Bold"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" />
+                        <Entry x:Name="Pan" Text="{Binding UserName}" Placeholder="Enter Pan" TextColor="Black" FontAttributes="Bold"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" />
                     </StackLayout>
                 </Frame>
 
-                <Frame BackgroundColor="Transparent" BorderColor="LightGreen" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <Frame BackgroundColor="Transparent" BorderColor="LightBlue" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="18">
                     <StackLayout Orientation="Horizontal">
                         <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                             <Image Source="avatar.png" Aspect="AspectFill" Margin="0"/>
                         </Frame>
-                        <Entry Text="{Binding Password}" Placeholder="ENTER OTP" TextColor="Black" FontAttributes="Bold"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" />
+                        <Entry x:Name="OTP" Text="{Binding Password}" Placeholder="ENTER OTP" TextColor="Black" FontAttributes="Bold"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" />
                     </StackLayout>
                 </Frame>
 
-                <StackLayout Orientation="Horizontal" Margin="0,10,0,0" Padding="0">
-                    <Button Text="Send OTP"  BackgroundColor="BurlyWood" TextColor="White" CornerRadius="30" WidthRequest="100" Margin="0,15,0,0" FontAttributes="Bold" FlowDirection="RightToLeft"/>
+                <StackLayout Orientation="Horizontal" Margin="0,10,0,0" Padding="0" HorizontalOptions="CenterAndExpand">
+                    <Button x:Name="SendOTPBtn" Clicked="SendOTPBtn_Clicked" Text="Send OTP"  BackgroundColor="BurlyWood" TextColor="White" CornerRadius="30" WidthRequest="100" Margin="0,15,0,0" FontAttributes="Bold" FlowDirection="RightToLeft"/>
                     
                     <!--<Label Text="Remember Me" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>-->
-                    <Button Text="Login"  BackgroundColor="#58D68D" TextColor="White" CornerRadius="30" WidthRequest="100" Margin="10,15,0,0" FontAttributes="Bold" FlowDirection="LeftToRight"/>
+                    <Button x:Name="LoginBtn" Clicked="LoginBtn_ClickedAsync" Text="Login"  BackgroundColor="#58D68D" TextColor="White" CornerRadius="30" WidthRequest="100" Margin="10,15,0,0" FontAttributes="Bold" FlowDirection="LeftToRight"/>
                 </StackLayout>
 
                 
 
-                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,60,0,0" Padding="0" BackgroundColor="LightBlue">
-                    <!--<Label Text="New User ?" TextColor="Black" FontSize="Small" />-->
-                    <Button Clicked="OnButtonClicked"  Text="Sign Up" TextColor="Black" FontSize="Small" FontAttributes="Bold" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,60,0,0" Padding="0" >
+                   
+                    <Label Text="New User?" TextColor="Gray" FontSize="Small" />
+                    <Label Text=" Sign Up" TextColor="Green" FontSize="Small" FontAttributes="Bold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSignUpTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <!--<Button Clicked="OnButtonClicked"  Text="Sign Up" TextColor="Black" FontSize="Small" FontAttributes="Bold" />-->
                     
                 </StackLayout>
 

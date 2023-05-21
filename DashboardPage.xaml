@@ -5,9 +5,27 @@
              Title="DashboardPage">
     <FlyoutPage.Flyout>
         <ContentPage Title="Master Page">
-            <Label Text="Master Page Details" 
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center"/>
+            <StackLayout>
+                <Label Text="Logged as ADMIN" VerticalOptions="Start" Margin="10,20,10,5" FontSize="16" />
+                <BoxView HeightRequest="1" BackgroundColor="Black" />
+                <ListView x:Name="MenuItems" Margin="20"  ItemSelected="OnMenuItemSelected">
+                    <ListView.ItemsSource>
+                        <x:Array Type="{x:Type ImageCell}">
+                            <ImageCell Text="Dashboard" ImageSource="dashboard.svg" />
+                            <ImageCell Text="View Issue" ImageSource="viewissue.svg" />
+                            <ImageCell Text="Report Issue" ImageSource="editissue.svg" />
+                        </x:Array>
+                    </ListView.ItemsSource>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ImageCell Text="{Binding Text}" ImageSource="{Binding ImageSource}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Logout Button -->
+                <Button Text="Logout" Clicked="OnLogoutButtonClicked" Margin="20" />
+            </StackLayout>
         </ContentPage>
     </FlyoutPage.Flyout>
     <FlyoutPage.Detail>
@@ -18,3 +36,113 @@
         </ContentPage>
     </FlyoutPage.Detail>
 </FlyoutPage>
+
+
+<!--<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grievance.DashboardPage"
+             Title="DashboardPage">
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Master Page">
+            <StackLayout>
+                <Label Text="Logged as ADMIN" VerticalOptions="Start" Margin="10,20,10,5" FontSize="16" />
+                <BoxView HeightRequest="1" BackgroundColor="Black" />
+                <TableView Intent="Menu" Margin="10,20,10,0" ="OnMenuItemSelected">
+                    <TableRoot>
+                        <TableSection Title="Welcome to Grievance">
+                            <ImageCell Text="Dashboard"                     
+                                ImageSource="dashboard.svg" />
+                            <ImageCell Text="View Issue"                      
+                                ImageSource="viewissue.svg" />
+                            <ImageCell Text="Report Issue"                       
+                                ImageSource="editissue.svg" />
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+
+                --><!-- Logout Button --><!--
+                <Button Text="Logout" Clicked="OnLogoutButtonClicked" Margin="20" />
+
+            </StackLayout>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+    <FlyoutPage.Detail>
+        <ContentPage Title="Detail Page">
+            <Label Text="Details Page Details" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"/>
+        </ContentPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>-->
+
+
+
+<!--<maui:FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:maui="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls.Compatibility"
+                  xmlns:controls="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls.Compatibility"
+                  xmlns:views="clr-namespace:YourNamespace.Views">
+    <maui:FlyoutPage.Flyout>
+        <controls:ContentPage>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Label Text="Logged as ADMIN" VerticalOptions="Start" Margin="10,20,10,5" FontSize="16" />
+                <BoxView HeightRequest="1" BackgroundColor="Black" />
+                <StackLayout VerticalOptions="FillAndExpand" Spacing="10" Margin="10,10,10,0">
+                    <controls:ImageButton Source="dashboard.png" Clicked="OnDashboardClicked" />
+                    <controls:ImageButton Source="view_issue.png" Clicked="OnViewIssueClicked" />
+                    <controls:ImageButton Source="report_issue.png" Clicked="OnReportIssueClicked" />
+                </StackLayout>
+            </StackLayout>
+        </controls:ContentPage>
+    </maui:FlyoutPage.Flyout>
+    <maui:FlyoutPage.Detail>
+        <views:DashboardPage />
+    </maui:FlyoutPage.Detail>
+</maui:FlyoutPage>
+
+
+
+
+
+
+
+
+
+<maui:FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:maui="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls.Compatibility"
+                  xmlns:controls="clr-namespace:Microsoft.Maui.Controls;assembly=Microsoft.Maui.Controls.Compatibility"
+                  xmlns:views="clr-namespace:YourNamespace.Views">
+    <maui:FlyoutPage.Flyout>
+        <controls:ContentPage>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Label Text="Logged as ADMIN" VerticalOptions="Start" Margin="10,20,10,5" FontSize="16" />
+                <BoxView HeightRequest="1" BackgroundColor="Black" />
+                <ListView VerticalOptions="FillAndExpand"
+                          SeparatorVisibility="None"
+                          Margin="10,10,10,0">
+                    <ListView.ItemsSource>
+                        <x:Array Type="{x:Type views:MenuItem}">
+                            <views:MenuItem Icon="dashboard.png" Title="Dashboard" />
+                            <views:MenuItem Icon="view_issue.png" Title="View Issue" />
+                            <views:MenuItem Icon="report_issue.png" Title="Report Issue" />
+                        </x:Array>
+                    </ListView.ItemsSource>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="10">
+                                    <Image Source="{Binding Icon}" WidthRequest="24" HeightRequest="24" />
+                                    <Label Text="{Binding Title}" VerticalOptions="Center" Margin="10,0,0,0" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </controls:ContentPage>
+    </maui:FlyoutPage.Flyout>
+    <maui:FlyoutPage.Detail>
+        <views:DashboardPage />
+    </maui:FlyoutPage.Detail>
+</maui:FlyoutPage>-->

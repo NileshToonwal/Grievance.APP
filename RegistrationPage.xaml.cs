@@ -2,8 +2,8 @@ namespace Grievance;
 
 public partial class RegistrationPage : ContentPage
 {
-	public RegistrationPage()
-	{
-		InitializeComponent();
-	}
+    public RegistrationPage()
+    {
+        InitializeComponent();
+    }
 }
