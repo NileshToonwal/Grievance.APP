@@ -1,4 +1,5 @@
-﻿using Grievance.Models;
+﻿using Entities.ExtendedModels;
+using Grievance.Models;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -12,20 +13,39 @@ namespace Grievance
 {
     public class Common
     {
-        public  ApiCommonResponse<T> GetCommonApi<T>(string apiUrl)
+        public ApiCommonResponse<T> GetCommonApi<T>(string apiDomain, string apiEndPoint)
         {
             try
             {
-                var options = new RestClientOptions()
+                // Create RestClient instance and specify the base URL of the API
+                var client = new RestClient(apiDomain);
+
+                // Create a new RestRequest with the endpoint you want to call
+                var request = new RestRequest(apiEndPoint, Method.Get);
+
+                // (Optional) Add any required headers or parameters to the request
+                //request.AddHeader("Authorization", "Bearer YOUR_ACCESS_TOKEN");
+                //request.AddParameter("paramName", "paramValue");
+
+                // Execute the request and get the response
+                var response = client.Execute(request);
+
+                // Check if the request was successful
+                if (response.IsSuccessful)
                 {
-                    MaxTimeout = -1,
-                };
-                var client = new RestClient(options);
-                var request = new RestRequest(apiUrl, Method.Get);
-                RestResponse response =  client.Execute(request);
-                ApiCommonResponse<T> apiCommonResponse = JsonConvert.DeserializeObject<ApiCommonResponse<T>>(response.Content);
-                Console.WriteLine(response.Content);
-                return apiCommonResponse;
+                    ApiCommonResponse<T> apiCommonResponse = JsonConvert.DeserializeObject<ApiCommonResponse<T>>(response.Content);
+                    //Console.WriteLine(response.Content);                
+                    return apiCommonResponse;
+                }
+                else
+                {                   
+                    return new ApiCommonResponse<T>()
+                    {
+                        allowStatus = false,
+                        msg = response.ErrorMessage,
+                        showMsg = true
+                    };                   
+                }
             }
             catch (Exception ex)
             {

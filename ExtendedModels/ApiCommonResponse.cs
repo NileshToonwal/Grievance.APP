@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grievance.Models
+namespace Entities.ExtendedModels
 {
     public class ApiCommonResponse<T>
     {
@@ -14,6 +14,7 @@ namespace Grievance.Models
         public string msg { get; set; }
         public T? contentData { get; set; }
         public bool isContentEncryted { get; set; }
+        public string encryptedContentData { get; set; }
 
     }
     public class Registration

@@ -8,6 +8,7 @@ namespace Grievance
 {
     public static class CodeValueConstant
     {
-        public static string apiPortalBaseUrl = @"https:\\localhost:44366";
+        public static string apiPortalBaseUrl = @"http://ec2-13-233-145-45.ap-south-1.compute.amazonaws.com"; //http://13.233.145.45
+        //public static string apiPortalBaseUrl = @"http://192.168.29.12:54779"; //http://13.233.145.45
     }
 }

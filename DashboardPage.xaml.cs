@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace Grievance;
 
 public partial class DashboardPage : FlyoutPage
@@ -53,6 +55,11 @@ public partial class DashboardPage : FlyoutPage
 
     private void OnLogoutButtonClicked(object sender, EventArgs e)
     {
-
+        if (Preferences.ContainsKey("user_login")) {
+            Preferences.Clear();
+        }
+        , JsonConvert.SerializeObject(res.contentData) Preferences.Get("user_login");
+        Navigation.PopToRootAsync();
+        Navigation.PushAsync(new login());
     }
 }
