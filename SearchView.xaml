@@ -40,7 +40,12 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal" Padding="5">
-                                <Label Text="{Binding IssueId}" Padding="5" />
+                                <Label Text="{Binding IssueId}" Padding="5">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                
                                 <Label Text="{Binding IssueCreatedBy}" Padding="5" />
                                 <Label Text="{Binding Status}"  Padding="5"/>
                                 <Label Text="{Binding Summary}" Padding="5"/>
