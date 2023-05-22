@@ -1,6 +1,8 @@
 using Entities.ExtendedModels;
 using Entities.Models;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
+using static Android.Renderscripts.ScriptGroup;
 
 namespace Grievance;
 
@@ -16,7 +18,7 @@ public partial class LoginPage : ContentPage
     //    Navigation.PushAsync(new HomePage());
     //}
 
-   
+
 
     private void LoginBtn_ClickedAsync(object sender, EventArgs e)
     {
@@ -28,7 +30,7 @@ public partial class LoginPage : ContentPage
         {
             if (res.showMsg && res.allowStatus == true)
             {
-                DisplayAlert("Login Status", res.msg, "Ok");                
+                DisplayAlert("Login Status", res.msg, "Ok");
             }
             else if (res.showMsg && res.allowStatus == false)
             {
@@ -39,7 +41,7 @@ public partial class LoginPage : ContentPage
             {
                 Preferences.Clear();
                 Preferences.Set("user_login", JsonConvert.SerializeObject(res.contentData));
-                string user_login_json=Preferences.Get("user_login", null);
+                string user_login_json = Preferences.Get("user_login", null);
                 Navigation.PopToRootAsync();
                 Navigation.PushAsync(new DashboardPage());
             }
@@ -62,7 +64,7 @@ public partial class LoginPage : ContentPage
             {
                 DisplayAlert("OTP Status", res.msg, "Ok");
                 return;
-            }            
+            }
         }
     }
     private void OnSignUpTapped(object sender, EventArgs e)
@@ -72,5 +74,12 @@ public partial class LoginPage : ContentPage
 
         Navigation.PopToRootAsync();
         Navigation.PushAsync(new RegistrationPage());
+    }
+
+    private void Pan_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        var textBox = (Entry)sender;
+        Regex regex = new Regex("[^a-zA-Z0-9]");
+        textBox.Text = regex.Replace(textBox.Text, "");
     }
 }

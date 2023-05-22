@@ -10,7 +10,17 @@ public partial class ReportIssue : ContentPage
     user_details user_details { get; set; }
     List<category_master> categoryMaster { get; set; }
     bool isAdminLogin = false;
+    public long? issueId;
+    public ReportIssue(long issueId)
+    {
+        this.issueId = issueId;
+        pageLoad();
+    }
     public ReportIssue()
+    {
+        pageLoad();
+    }
+    public void pageLoad()
     {
         InitializeComponent();
         string user_loginJson = Preferences.Get("user_login", null);
@@ -91,11 +101,53 @@ public partial class ReportIssue : ContentPage
         complaintIssueDate.IsEnabled = false;
 
 
+        if (issueId != null)
+        {
+            IssueListModel searchPayload = new IssueListModel();
+            searchPayload.IssueId = issueId;
+            if (!isAdminLogin)
+            {
+                searchPayload.UserId = user_Login.user_id_ref;
+            }
+
+            ApiCommonResponse<List<issue_detail>> viewComplaint = Common.PostCommonApi<List<issue_detail>>(CodeValueConstant.apiPortalBaseUrl, @"/api/Common/GetIssueList", JsonConvert.SerializeObject(searchPayload));
+            if (viewComplaint.showMsg && !string.IsNullOrWhiteSpace(viewComplaint.msg) && !viewComplaint.allowStatus)
+            {
+                DisplayAlert("Complaint Status", res.msg, "OK");
+                return;
+            }
+            else
+            {
+                issue_detail viewIssue = viewComplaint.contentData.FirstOrDefault();
+                if (viewIssue != null)
+                {
+                    complaintPanNumber.Text = viewIssue.pan;
+                    complaintName.Text = viewIssue.fullname;
+                    complaintIssueSummary.Text = viewIssue.summary;
+                    complaintCategory.SelectedItem = viewIssue.category;
+                    complaintSubCategory.SelectedItem = viewIssue.subcategory;
+                    complaintIssueDetails.Text = viewIssue.details;
+                    complaintExchange.SelectedItem = viewIssue.exchange;
+                    complaintSegmentType.SelectedItem = viewIssue.segment;
+                    complaintMode.SelectedItem = viewIssue.mode;
+                    complaintUcc.Text = viewIssue.ucc;
+                    complaintStatus.SelectedItem = viewIssue.status;
+                }
+            }
+        }
+
     }
+
+
 
     private void AddComplaintBtn_Clicked(object sender, EventArgs e)
     {
         issue_detail issue = new issue_detail();
+        if (issueId != null)
+        {
+            issue.issue_id = (issueId ?? 0);
+        }
+
         issue.user_id_ref = user_Login.user_id_ref;
         issue.pan = complaintPanNumber.Text;
         issue.issue_by = complaintName.Text;
@@ -140,6 +192,7 @@ public partial class ReportIssue : ContentPage
 
     private void addNoteSubmit_Clicked(object sender, EventArgs e)
     {
-
+        //after save
+        complaintDetailAddNoteField.Text = "";
     }
 }

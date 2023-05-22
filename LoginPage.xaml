@@ -36,7 +36,7 @@
                         <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                             <Image Source="rk.jpg" Aspect="AspectFill" Margin="0"/>
                         </Frame>
-                        <Entry x:Name="Pan" Text="{Binding UserName}" Placeholder="Enter Pan" TextColor="Black" FontAttributes="Bold"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" />
+                        <Entry x:Name="Pan" Text="{Binding UserName}" TextChanged="Pan_TextChanged" Placeholder="Enter Pan" TextColor="Black" FontAttributes="Bold"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" />
                     </StackLayout>
                 </Frame>
 

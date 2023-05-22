@@ -39,7 +39,7 @@
                 <Button x:Name="AddComplaintBtn" Text="Submit" Clicked="AddComplaintBtn_Clicked" />
 
                 
-                <Button Text="Add Note" FontAttributes="Bold" Margin="0,30,0,0" BackgroundColor="AliceBlue"/>
+                <Button Text="Add Note" FontAttributes="Bold" Margin="0,40,0,0" BackgroundColor="Chocolate" HorizontalOptions="Start"/>
 
                 <Entry x:Name="complaintDetailAddNoteField" Placeholder="Enter Note"/>
 

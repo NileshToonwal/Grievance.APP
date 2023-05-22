@@ -64,16 +64,15 @@ public partial class SearchView : ContentPage
             }).ToList();
 
             issuelistView.ItemsSource = issueList;
-        }
-        else
-        {
-            return;
-        }
+        }        
 
     }
 
     private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
-        DisplayAlert("hello", "jai shreee ram", "OK");
+        long issueId = 1;//
+        Navigation.PopToRootAsync();
+        Navigation.PushAsync(new ReportIssue(issueId));
+        //DisplayAlert("hello", "jai shreee ram", "OK");
     }
 }
