@@ -75,7 +75,7 @@ public partial class ReportIssue : ContentPage
 
         //for admin level
 
-        complaintStatus.IsVisible = !isAdminLogin;
+        complaintStatus.IsVisible = isAdminLogin;
         complaintPanNumber.IsEnabled = !isAdminLogin;
         complaintName.IsEnabled = !isAdminLogin;
         complaintUcc.IsEnabled = !isAdminLogin;
@@ -139,5 +139,10 @@ public partial class ReportIssue : ContentPage
     {
         string mainCategory = (string)complaintCategory.SelectedItem;
         complaintSubCategory.ItemsSource = categoryMaster.Where(x => x.category == mainCategory).Select(o => o.subcategory).Distinct().ToList();
+    }
+
+    private void addNoteSubmit_Clicked(object sender, EventArgs e)
+    {
+
     }
 }

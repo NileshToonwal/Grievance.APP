@@ -1,0 +1,12 @@
+﻿.EmailEntry {
+border-radius:3px 3px;
+color:cornflowerblue;
+border:2px solid gray;
+}
+
+.customTextField {
+    background-color: #FFFFFF;
+    padding: 10px;
+    color: #000000;
+    placeholder-color: #808080;
+}
