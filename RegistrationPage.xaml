@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Grievance.RegistrationPage"
              Title="RegistrationPage">
-
+    <ContentPage.Resources>
+        <StyleSheet Source="/Resources/Styles/Stylesheet1.css" />
+    </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
 
@@ -22,34 +24,34 @@
             <Frame BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
                 <Entry Text="" Placeholder="Name" x:Name="entryName" HorizontalOptions="FillAndExpand"
                        PlaceholderColor="Black" SemanticProperties.HeadingLevel="Level2"
-                       SemanticProperties.Description="Name" FontSize="14"
+                       SemanticProperties.Description="Name" FontSize="14" StyleClass="customTextField"
                        Keyboard="Text" />
             </Frame>
 
             <Frame BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
                 <Entry Text="" Placeholder="PAN" x:Name="entryPAN" PlaceholderColor="Black"
-                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="PAN"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="PAN" StyleClass="customTextField"
                        FontSize="14"
                        Keyboard="Text" />
             </Frame>
 
             <Frame BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
                 <Entry Text="" Placeholder="UCC CODE" x:Name="entryUCC" PlaceholderColor="Black"
-                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="UCC CODE"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="UCC CODE" StyleClass="customTextField"
                        FontSize="14"
                        Keyboard="Text" />
             </Frame>
 
             <Frame BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
                 <Entry Text="" Placeholder="MOBILE NUMBER" x:Name="entryMobile" PlaceholderColor="Black"
-                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="MOBILE NUMBER"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="MOBILE NUMBER" StyleClass="customTextField"
                        FontSize="14"
                        Keyboard="Telephone" />
             </Frame>
 
             <Frame BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
                 <Entry Text="" Placeholder="DOB" x:Name="entryDOB" PlaceholderColor="Black"
-                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="DOB"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="DOB" StyleClass="customTextField"
                        FontSize="14"
                        Keyboard="Default" />
                 <DatePicker x:Name="myDatePicker" Format="D" />
@@ -57,7 +59,7 @@
 
             <Frame BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
                 <Entry Text="" Placeholder="EMAIL ID" x:Name="entryEmail" PlaceholderColor="Black"
-                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="EMAIL ID"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="EMAIL ID" StyleClass="customTextField"
                        FontSize="14"
                        Keyboard="Email" />
             </Frame>

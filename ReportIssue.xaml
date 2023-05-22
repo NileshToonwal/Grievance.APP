@@ -5,9 +5,6 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="10" Padding="20">
-                <Picker x:Name="complaintStatus" Title="Select Status" IsVisible="False">
-                    <!-- Add options for the complaintMode spinner here -->
-                </Picker>
                 <Entry x:Name="complaintPanNumber" Placeholder="PAN Number" />
                 <Entry x:Name="complaintName" Placeholder="Name" />
                 <Entry x:Name="complaintUcc" Placeholder="UCC" />
@@ -36,9 +33,19 @@
                 <Editor x:Name="complaintIssueSummary" Placeholder="Issue Summary" HeightRequest="50" MaximumHeightRequest="150" />
                 <Editor x:Name="complaintIssueDetails" Placeholder="Issue Details" HeightRequest="100" MaximumHeightRequest="150"/>
 
+                <Picker x:Name="complaintStatus" Title="Select Status" IsVisible="False">
+                    <!-- Add options for the complaintMode spinner here -->
+                </Picker>
                 <Button x:Name="AddComplaintBtn" Text="Submit" Clicked="AddComplaintBtn_Clicked" />
 
-                <!--<ImageButton x:Name="addComplaintBtn"
+                
+                <Button Text="Add Note" FontAttributes="Bold" Margin="0,30,0,0" BackgroundColor="AliceBlue"/>
+
+                <Entry x:Name="complaintDetailAddNoteField" Placeholder="Enter Note"/>
+
+                <Button x:Name="addNoteSubmit" Text="save" Clicked="addNoteSubmit_Clicked"/>
+
+                    <!--<ImageButton x:Name="addComplaintBtn"
                          Source="back.png"
                          BackgroundColor="Transparent"
                          Clicked="addComplaintBtn_Clicked" />-->
