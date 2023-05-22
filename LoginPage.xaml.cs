@@ -23,7 +23,7 @@ public partial class LoginPage : ContentPage
     private void LoginBtn_ClickedAsync(object sender, EventArgs e)
     {
         //string apiUrl = "http://localhost:5008" + @"\api\Common\GetOtpLogin\" + Pan.Text + "\\" + OTP.Text;
-        string apiEndPoint = @"\api\Common\GetOtpLogin\" + Pan.Text + "\\" + OTP.Text;
+        string apiEndPoint = @"\api\Common\GetOtpLogin\" + (Pan.Text ?? "").ToUpper() + "\\" + OTP.Text;
         //Common common = new Common();
         var res = Common.GetCommonApi<user_login>(CodeValueConstant.apiPortalBaseUrl, apiEndPoint);
         if (res != null)
@@ -51,7 +51,7 @@ public partial class LoginPage : ContentPage
     private void SendOTPBtn_Clicked(object sender, EventArgs e)
     {
         string deviceName = DeviceInfo.Name;
-        string apiEndPoint = @"/api/Common/GenerateNewOtpLogin/" + Pan.Text + "/" + deviceName;
+        string apiEndPoint = @"/api/Common/GenerateNewOtpLogin/" + (Pan.Text??"").ToUpper() + "/" + deviceName;
         //Common common = new Common();
         var res = Common.GetCommonApi<ApiCommonResponse<string>>(CodeValueConstant.apiPortalBaseUrl, apiEndPoint);
         if (res != null)
@@ -80,6 +80,6 @@ public partial class LoginPage : ContentPage
     {
         var textBox = (Entry)sender;        
         Regex regex = new Regex("[^a-zA-Z0-9]");
-        textBox.Text = regex.Replace(textBox.Text, "").ToUpper();
+        textBox.Text = regex.Replace(textBox.Text, "");
     }
 }
