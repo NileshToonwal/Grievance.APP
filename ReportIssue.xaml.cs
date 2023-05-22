@@ -174,7 +174,7 @@ public partial class ReportIssue : ContentPage
         issue.issue_created_dt = DateTime.Now;
         issue.targate_date = DateTime.Now.AddDays(3);
         issue.isactive = true;
-        issue.status = ((string)complaintStatus.SelectedItem ?? "OPEN";
+        issue.status = ((string)complaintStatus.SelectedItem )?? "OPEN";
 
         ApiCommonResponse<issue_detail> res = Common.PostCommonApi<issue_detail>(CodeValueConstant.apiPortalBaseUrl, @"/api/Common/RegisterIssue", JsonConvert.SerializeObject(issue));
         if (res.showMsg && !string.IsNullOrWhiteSpace(res.msg))
