@@ -79,15 +79,15 @@ public partial class ReportIssue : ContentPage
         complaintPanNumber.IsEnabled = !isAdminLogin;
         complaintName.IsEnabled = !isAdminLogin;
         complaintUcc.IsEnabled = !isAdminLogin;
-        complaintIssueSummary.IsEnabled = !isAdminLogin; 
-        complaintCategory.IsEnabled = !isAdminLogin; 
-        complaintSubCategory.IsEnabled = !isAdminLogin; 
-        complaintIssueDetails.IsEnabled = !isAdminLogin; 
-        complaintExchange.IsEnabled = !isAdminLogin; 
-        complaintSegmentType.IsEnabled = !isAdminLogin; 
+        complaintIssueSummary.IsEnabled = !isAdminLogin;
+        complaintCategory.IsEnabled = !isAdminLogin;
+        complaintSubCategory.IsEnabled = !isAdminLogin;
+        complaintIssueDetails.IsEnabled = !isAdminLogin;
+        complaintExchange.IsEnabled = !isAdminLogin;
+        complaintSegmentType.IsEnabled = !isAdminLogin;
         complaintMode.IsEnabled = !isAdminLogin;
         complaintUcc.IsEnabled = !isAdminLogin;
-        complaintIssueDate.Date= DateTime.Now;
+        complaintIssueDate.Date = DateTime.Now;
         complaintIssueDate.IsEnabled = false;
 
 
@@ -115,12 +115,9 @@ public partial class ReportIssue : ContentPage
         issue.status = (string)complaintStatus.SelectedItem;
 
         ApiCommonResponse<issue_detail> res = Common.PostCommonApi<issue_detail>(CodeValueConstant.apiPortalBaseUrl, @"/api/Common/RegisterIssue", JsonConvert.SerializeObject(issue));
-        if (res.showMsg && string.IsNullOrWhiteSpace(res.msg))
+        if (res.showMsg && !string.IsNullOrWhiteSpace(res.msg))
         {
-            if (res.allowStatus)
-            {
-                DisplayAlert("Issue Registration Status", res.msg, "OK");
-            }
+            DisplayAlert("Issue Registration Status", res.msg, "OK");
         }
         if (res.allowStatus)
         {

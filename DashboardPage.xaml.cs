@@ -1,3 +1,4 @@
+
 using Entities.Models;
 using Newtonsoft.Json;
 
@@ -11,8 +12,24 @@ public partial class DashboardPage : FlyoutPage
         InitializeComponent();
         user_Login = JsonConvert.DeserializeObject<user_login>(Preferences.Get("user_login", null));
         userRole.Text = "Logged by " + user_Login.roletype;
+        MainFlyoutPage.Detail = new NavigationPage(new ClinetDashBorad());
     }
-    
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        foreach (var item in MenuItems.ItemsSource)
+        {
+            if (item is ImageCell imageCell && imageCell.Text == "Add Complaint")
+            {
+                if (user_Login.roletype == "ADMIN")
+                {
+                    imageCell.IsEnabled = false;
+                    break;
+                }
+            }
+        }
+    }
+
     private void OnMenuItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
         var selectedCell = e.SelectedItem as ImageCell;
@@ -24,14 +41,17 @@ public partial class DashboardPage : FlyoutPage
                     // Handle Dashboard click event
                     HandleDashboardClick();
                     break;
-                case "View Issue":
-                    // Handle View Issue click event
-                    HandleViewIssueClick();
-                    break;
-                case "Report Issue":
+
+                case "Add Complaint":
                     // Handle Report Issue click event
                     HandleReportIssueClick();
                     break;
+
+                case "Search Complaint":
+                    // Handle View Issue click event
+                    HandleViewIssueClick();
+                    break;
+               
             }
 
             // Reset the selected item to null
@@ -48,7 +68,7 @@ public partial class DashboardPage : FlyoutPage
 
     private void HandleViewIssueClick()
     {
-        
+        MainFlyoutPage.Detail = new NavigationPage(new SearchView());
         // Handle View Issue click event
         // Implement your logic here
     }

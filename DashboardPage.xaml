@@ -13,8 +13,8 @@
                     <ListView.ItemsSource>
                         <x:Array Type="{x:Type ImageCell}">
                             <ImageCell Text="Dashboard" ImageSource="dashboard.svg" />
-                            <ImageCell Text="View Issue" ImageSource="viewissue.svg" />
-                            <ImageCell Text="Report Issue" ImageSource="editissue.svg" />
+                            <ImageCell x:Name="addComplaintCell" Text="Add Complaint" ImageSource="editissue.svg" />
+                            <ImageCell Text="Search Complaint" ImageSource="viewissue.svg" />
                         </x:Array>
                     </ListView.ItemsSource>
                     <ListView.ItemTemplate>
