@@ -1,12 +1,15 @@
+using Entities.Models;
 using Newtonsoft.Json;
 
 namespace Grievance;
 
 public partial class DashboardPage : FlyoutPage
 {
+    user_login user_Login { get; set; }
     public DashboardPage()
     {
         InitializeComponent();
+        user_Login = JsonConvert.DeserializeObject<user_login>(Preferences.Get("user_login", "{}")); ;
     }
     
     private void OnMenuItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -55,11 +58,8 @@ public partial class DashboardPage : FlyoutPage
 
     private void OnLogoutButtonClicked(object sender, EventArgs e)
     {
-        if (Preferences.ContainsKey("user_login")) {
-            Preferences.Clear();
-        }
-        , JsonConvert.SerializeObject(res.contentData) Preferences.Get("user_login");
+        Preferences.Clear();        
         Navigation.PopToRootAsync();
-        Navigation.PushAsync(new login());
+        Navigation.PushAsync(new LoginPage());
     }
 }

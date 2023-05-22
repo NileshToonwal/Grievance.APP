@@ -45,7 +45,7 @@
                         <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                             <Image Source="avatar.png" Aspect="AspectFill" Margin="0"/>
                         </Frame>
-                        <Entry x:Name="OTP" Text="{Binding Password}" Placeholder="ENTER OTP" TextColor="Black" FontAttributes="Bold"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" />
+                        <Entry x:Name="OTP" Keyboard="Numeric" Text="{Binding Password}" Placeholder="ENTER OTP" TextColor="Black" FontAttributes="Bold"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" />
                     </StackLayout>
                 </Frame>
 

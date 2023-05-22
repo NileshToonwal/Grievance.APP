@@ -1,7 +1,5 @@
 using Entities.ExtendedModels;
 using Entities.Models;
-using Grievance.Models;
-using Grievance.Views;
 using Newtonsoft.Json;
 
 namespace Grievance;
@@ -23,9 +21,9 @@ public partial class LoginPage : ContentPage
     private void LoginBtn_ClickedAsync(object sender, EventArgs e)
     {
         //string apiUrl = "http://localhost:5008" + @"\api\Common\GetOtpLogin\" + Pan.Text + "\\" + OTP.Text;
-        string apiEndPoint = @"\api\Common\GetOtpLogin\" + Pan.Text + "\\" + OTP.Text;        
-        Common common = new Common();
-        var res = common.GetCommonApi<user_login>(CodeValueConstant.apiPortalBaseUrl, apiEndPoint);
+        string apiEndPoint = @"\api\Common\GetOtpLogin\" + Pan.Text + "\\" + OTP.Text;
+        //Common common = new Common();
+        var res = Common.GetCommonApi<user_login>(CodeValueConstant.apiPortalBaseUrl, apiEndPoint);
         if (res != null)
         {
             if (res.showMsg && res.allowStatus == true)
@@ -39,6 +37,7 @@ public partial class LoginPage : ContentPage
             }
             if (res.allowStatus == true)
             {
+                Preferences.Clear();
                 Preferences.Set("user_login", JsonConvert.SerializeObject(res.contentData));
                 Navigation.PopToRootAsync();
                 Navigation.PushAsync(new DashboardPage());
@@ -50,8 +49,8 @@ public partial class LoginPage : ContentPage
     {
         string deviceName = DeviceInfo.Name;
         string apiEndPoint = @"/api/Common/GenerateNewOtpLogin/" + Pan.Text + "/" + deviceName;
-        Common common = new Common();
-        var res = common.GetCommonApi<ApiCommonResponse<string>>(CodeValueConstant.apiPortalBaseUrl, apiEndPoint);
+        //Common common = new Common();
+        var res = Common.GetCommonApi<ApiCommonResponse<string>>(CodeValueConstant.apiPortalBaseUrl, apiEndPoint);
         if (res != null)
         {
             if (res.showMsg && res.allowStatus == true)
