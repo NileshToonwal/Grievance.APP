@@ -78,8 +78,8 @@ public partial class LoginPage : ContentPage
 
     private void Pan_TextChanged(object sender, TextChangedEventArgs e)
     {
-        var textBox = (Entry)sender;
+        var textBox = (Entry)sender;        
         Regex regex = new Regex("[^a-zA-Z0-9]");
-        textBox.Text = regex.Replace(textBox.Text, "");
+        textBox.Text = regex.Replace(textBox.Text, "").ToUpper();
     }
 }
