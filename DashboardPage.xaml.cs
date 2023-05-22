@@ -9,7 +9,8 @@ public partial class DashboardPage : FlyoutPage
     public DashboardPage()
     {
         InitializeComponent();
-        user_Login = JsonConvert.DeserializeObject<user_login>(Preferences.Get("user_login", "{}")); ;
+        user_Login = JsonConvert.DeserializeObject<user_login>(Preferences.Get("user_login", null));
+        userRole.Text = "Logged by " + user_Login.roletype;
     }
     
     private void OnMenuItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -39,19 +40,21 @@ public partial class DashboardPage : FlyoutPage
     }
 
     private void HandleDashboardClick()
-    {
+    {        
         // Handle Dashboard click event
         // Implement your logic here
     }
 
     private void HandleViewIssueClick()
     {
+        
         // Handle View Issue click event
         // Implement your logic here
     }
 
     private void HandleReportIssueClick()
     {
+        MainFlyoutPage.Detail = new NavigationPage(new ReportIssue());
         // Handle Report Issue click event
         // Implement your logic here
     }

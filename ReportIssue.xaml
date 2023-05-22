@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grievance.ReportIssue">
+    <ContentPage.Content>
+        <StackLayout Spacing="10" Padding="20">
+            <Picker x:Name="complaintStatus" Title="Select Status">
+                <!-- Add options for the complaintMode spinner here -->
+            </Picker>
+            <Entry x:Name="complaintPanNumber" Placeholder="PAN Number" />
+            <Entry x:Name="complaintName" Placeholder="Name" />
+            <Entry x:Name="complaintUcc" Placeholder="UCC" />
+            <DatePicker x:Name="complaintIssueDate" />
+
+            <Picker x:Name="complaintMode" Title="Select Mode">
+                <!-- Add options for the complaintMode spinner here -->
+            </Picker>
+
+            <Picker x:Name="complaintExchange" Title="Select Exchange">
+                <!-- Add options for the complaintExchange spinner here -->
+            </Picker>
+
+            <Picker x:Name="complaintSegmentType" Title="Select Segment Type">
+                <!-- Add options for the complaintSegmentType spinner here -->
+            </Picker>
+
+            <Picker x:Name="complaintCategory" SelectedIndexChanged="complaintCategory_SelectedIndexChanged" Title="Select Category">
+                <!-- Add options for the complaintCategory spinner here -->
+            </Picker>
+
+            <Picker x:Name="complaintSubCategory" Title="Select Subcategory">
+                <!-- Add options for the complaintSubCategory spinner here -->
+            </Picker>
+
+            <Editor x:Name="complaintIssueSummary" Placeholder="Issue Summary" />
+            <Editor x:Name="complaintIssueDetails" Placeholder="Issue Details" />
+
+            <Button x:Name="AddComplaintBtn" Text="Submit" Clicked="AddComplaintBtn_Clicked" />
+
+            <!--<ImageButton x:Name="addComplaintBtn"
+                         Source="back.png"
+                         BackgroundColor="Transparent"
+                         Clicked="addComplaintBtn_Clicked" />-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

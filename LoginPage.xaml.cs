@@ -39,6 +39,7 @@ public partial class LoginPage : ContentPage
             {
                 Preferences.Clear();
                 Preferences.Set("user_login", JsonConvert.SerializeObject(res.contentData));
+                string user_login_json=Preferences.Get("user_login", null);
                 Navigation.PopToRootAsync();
                 Navigation.PushAsync(new DashboardPage());
             }
