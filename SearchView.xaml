@@ -4,28 +4,82 @@
              x:Class="Grievance.SearchView"
              Title="SearchView">
     <ContentPage.Content>
-        <StackLayout Spacing="15" Padding="20">
-            <Grid Margin="15,25,10,10" RowSpacing="10" RowDefinitions="30,30,30" ColumnDefinitions=".5*,.5*" HeightRequest="35">
-                <Entry x:Name="dashboardFilterSearch" Placeholder="Search" Grid.Row="0" Grid.Column="0" HeightRequest="35" />
-                <Entry x:Name="dashboardFilterIssueId" Placeholder="Issue ID" Grid.Row="0" Grid.Column="1" HeightRequest="35" />
-                <Picker x:Name="dashboardFilterStatus" Title="Select Status" Grid.Row="1" Grid.Column="0" HeightRequest="35">
-                    <!-- Add options for the dashboardFilterStatus spinner here -->
-                </Picker>
-                <Picker x:Name="dashboardFilterIssuedBy" Title="Select Issued By" Grid.Row="1" Grid.Column="1" >
-                    <!-- Add options for the dashboardFilterIssuedBy spinner here -->
-                </Picker>
+        <ScrollView>
+            <StackLayout Spacing="15" Padding="20">
+                <!--<Grid Margin="15,25,10,10" RowSpacing="25" RowDefinitions="30,30,30,30,30" ColumnDefinitions=".5*,.5*" HeightRequest="35">
+                
+                -->
+                <!--<Picker x:Name="dashboardFilterIssuedBy" Margin="0,50,0,0" BackgroundColor="AliceBlue" Title="Select Issued By" Grid.Row="1" Grid.Column="1" >
+                    -->
+                <!-- Add options for the dashboardFilterIssuedBy spinner here -->
+                <!--
+                </Picker>-->
+                <!--
+                    
+                </Grid>-->
 
-                <Button x:Name="dashboardSearchButton" Text="Search" HeightRequest="35" Clicked="dashboardSearchButton_Clicked_1" Grid.Row="2" Grid.Column="1"/>
-
-                <CollectionView x:Name="complaintList" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
-                    <!-- Define your item template and bindings for the complaintList RecyclerView here -->
-                    <!-- For example, you can use a DataTemplate with a Grid layout and bind to your data properties -->
+                <SearchBar x:Name="dashboardFilterSearch" Placeholder="search by summary" Grid.Row="0" Grid.Column="0" HeightRequest="35" />
+                <SearchBar x:Name="dashboardFilterIssueId" Placeholder="Issue ID" Grid.Row="0" Grid.Column="1" HeightRequest="35" />
+                <SearchBar x:Name="dashboardFilterUserId" Placeholder="User ID" Grid.Row="0" Grid.Column="1" HeightRequest="35" />
+                <Picker x:Name="dashboardFilterStatus" Title="search by Status" Grid.Row="1" Grid.Column="0" HeightRequest="35">
+                    <!--Add options for the dashboardFilterStatus spinner here-->
+                </Picker>
+                <Button Text="Search"  x:Name="dashboardSearchButton" HeightRequest="35" Clicked="dashboardSearchButton_Clicked" Grid.Row="2" Grid.Column="1"/>
+                <CollectionView x:Name="issuelistView">
+                    <!--<CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>-->
+                    <CollectionView.Header>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="Ticket ID" FontAttributes="Bold" WidthRequest="100"/>
+                            <Label Text="Complaint By" FontAttributes="Bold" WidthRequest="150"/>
+                            <Label Text="Status" FontAttributes="Bold" WidthRequest="100"/>
+                            <Label Text="Summary" FontAttributes="Bold" WidthRequest="300"/>
+                        </StackLayout>
+                    </CollectionView.Header>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal" Padding="5">
+                                <Label Text="{Binding IssueId}" Padding="5" />
+                                <Label Text="{Binding IssueCreatedBy}" Padding="5" />
+                                <Label Text="{Binding Status}"  Padding="5"/>
+                                <Label Text="{Binding Summary}" Padding="5"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
                 </CollectionView>
-            </Grid>
 
 
-            
-        </StackLayout>
+
+                
+                
+                <!--<ListView x:Name="issuelistView">
+                        <ListView.Header>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Label Text="Ticket ID" FontAttributes="Bold" WidthRequest="100"/>
+                                <Label Text="Complaint By" FontAttributes="Bold" WidthRequest="200"/>
+                                <Label Text="Status" FontAttributes="Bold" WidthRequest="100"/>
+                                <Label Text="Summary" FontAttributes="Bold" WidthRequest="300"/>
+                            </StackLayout>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" Padding="10">
+                                        <Label Text="{Binding IssueId}"  />
+                                        <Label Text="{Binding IssueCreatedBy}" />
+                                        <Label Text="{Binding Status}" />
+                                        <Label Text="{Binding Summary}" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>-->
+                
+
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
 

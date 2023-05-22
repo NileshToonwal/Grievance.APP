@@ -16,6 +16,13 @@ namespace Entities.ExtendedModels
 
         public string Summary { get; set; }
 
+    }
+    public class IssueListViewModel
+    {
+        public long IssueId { get; set; }        
+        public string Status { get; set; }
+        public string IssueCreatedBy { get; set; }
+        public string Summary { get; set; }
 
     }
 }
