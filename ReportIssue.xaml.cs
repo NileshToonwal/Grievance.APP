@@ -11,6 +11,7 @@ public partial class ReportIssue : ContentPage
     List<category_master> categoryMaster { get; set; }
     bool isAdminLogin = false;
     public long? issueId;
+    public long? userRefId;
     public ReportIssue(long issueId)
     {
         this.issueId = issueId;
@@ -121,6 +122,7 @@ public partial class ReportIssue : ContentPage
                 issue_detail viewIssue = viewComplaint.contentData.FirstOrDefault();
                 if (viewIssue != null)
                 {
+                    userRefId = viewIssue.user_id_ref;
                     complaintPanNumber.Text = viewIssue.pan;
                     complaintName.Text = viewIssue.fullname;
                     complaintIssueSummary.Text = viewIssue.summary;
@@ -146,9 +148,16 @@ public partial class ReportIssue : ContentPage
         if (issueId != null)
         {
             issue.issue_id = (issueId ?? 0);
+           
         }
-
-        issue.user_id_ref = user_Login.user_id_ref;
+        if (userRefId != null)
+        {
+            issue.user_id_ref = userRefId??0;
+        }
+        else {
+            issue.user_id_ref = user_Login.user_id_ref;
+        }
+        
         issue.pan = complaintPanNumber.Text;
         issue.issue_by = complaintName.Text;
         issue.fullname = complaintName.Text;

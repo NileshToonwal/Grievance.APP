@@ -40,15 +40,15 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal" Padding="5">
-                                <Label Text="{Binding IssueId}" Padding="5">
+                                <!--<Label Text="{Binding IssueId}" Padding="5">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                     </Label.GestureRecognizers>
-                                </Label>
-                                
-                                <Label Text="{Binding IssueCreatedBy}" Padding="5" />
-                                <Label Text="{Binding Status}"  Padding="5"/>
-                                <Label Text="{Binding Summary}" Padding="5"/>
+                                </Label>-->
+                                <Button  HorizontalOptions="Start" Text="{Binding IssueId}" Clicked="ViewComplaintButton_Clicked" Padding="5"></Button>
+                                <Label Text="{Binding IssueCreatedBy}" Padding="5" VerticalOptions="Center"/>
+                                <Label Text="{Binding Status}"  Padding="5" VerticalOptions="Center"/>
+                                <Label Text="{Binding Summary}" Padding="5" VerticalOptions="Center"/>
                             </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

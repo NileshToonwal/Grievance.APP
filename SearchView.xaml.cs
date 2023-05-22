@@ -68,9 +68,15 @@ public partial class SearchView : ContentPage
 
     }
 
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    //private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    //{
+     
+        
+    //}
+
+    private void ViewComplaintButton_Clicked(object sender, EventArgs e)
     {
-        long issueId = 1;//
+        long issueId = Convert.ToInt64(((Button)sender).Text);
         Navigation.PopToRootAsync();
         Navigation.PushAsync(new ReportIssue(issueId));
         //DisplayAlert("hello", "jai shreee ram", "OK");
