@@ -9,6 +9,7 @@ public partial class ReportIssue : ContentPage
     user_login user_Login { get; set; }
     user_details user_details { get; set; }
     List<category_master> categoryMaster { get; set; }
+    bool isAdminLogin = false;
     public ReportIssue()
     {
         InitializeComponent();
@@ -19,6 +20,11 @@ public partial class ReportIssue : ContentPage
             DisplayAlert("Session Expired", "User details not found!", "ok");
             return;
         }
+        if (user_Login.roletype == "ADMIN")
+        {
+            isAdminLogin = true;
+        }
+
         string apiEndPoint = $"/api/Common/GetUserDetailesById/{user_Login.user_id_ref}";
         ApiCommonResponse<user_details> res = Common.GetCommonApi<user_details>(CodeValueConstant.apiPortalBaseUrl, apiEndPoint);
         if (res == null || res.contentData == null)
@@ -56,7 +62,7 @@ public partial class ReportIssue : ContentPage
         ApiCommonResponse<List<category_master>> categoryMasterRes = Common.GetCommonApi<List<category_master>>(CodeValueConstant.apiPortalBaseUrl, apiEndPoint);
         if (categoryMasterRes != null && categoryMasterRes.contentData != null)
         {
-            List<category_master> categoryMaster = categoryMasterRes.contentData;
+            categoryMaster = categoryMasterRes.contentData;
             complaintCategory.ItemsSource = categoryMaster.Select(o => o.category).Distinct().ToList();
         }
         else
@@ -65,6 +71,24 @@ public partial class ReportIssue : ContentPage
             return;
         }
 
+
+
+        //for admin level
+
+        complaintStatus.IsVisible = !isAdminLogin;
+        complaintPanNumber.IsEnabled = !isAdminLogin;
+        complaintName.IsEnabled = !isAdminLogin;
+        complaintUcc.IsEnabled = !isAdminLogin;
+        complaintIssueSummary.IsEnabled = !isAdminLogin; 
+        complaintCategory.IsEnabled = !isAdminLogin; 
+        complaintSubCategory.IsEnabled = !isAdminLogin; 
+        complaintIssueDetails.IsEnabled = !isAdminLogin; 
+        complaintExchange.IsEnabled = !isAdminLogin; 
+        complaintSegmentType.IsEnabled = !isAdminLogin; 
+        complaintMode.IsEnabled = !isAdminLogin;
+        complaintUcc.IsEnabled = !isAdminLogin;
+        complaintIssueDate.Date= DateTime.Now;
+        complaintIssueDate.IsEnabled = false;
 
 
     }

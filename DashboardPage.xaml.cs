@@ -40,7 +40,8 @@ public partial class DashboardPage : FlyoutPage
     }
 
     private void HandleDashboardClick()
-    {        
+    {
+        MainFlyoutPage.Detail = new NavigationPage(new ClinetDashBorad());
         // Handle Dashboard click event
         // Implement your logic here
     }
