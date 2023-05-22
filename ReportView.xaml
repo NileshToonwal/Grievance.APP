@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grievance.ReportView"
+             Title="ReportView">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="0,10,0,0">
+                <Label Text="Compaint Details"
+                   x:Name="lblTitle"
+                   SemanticProperties.HeadingLevel="Level1"
+                   FontSize="20"
+                   HorizontalOptions="Center" />
+
+                <Grid Margin="15,25,10,10" RowSpacing="10" RowDefinitions="30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30" ColumnDefinitions=".3*,.7*">
+                    <Label VerticalOptions="Center" Text="Issue ID" FontAttributes="Bold"
+                       Grid.Row="0" Grid.Column="0" />
+                    <!--<Entry x:Name="complaintDetailIssueId" Text="" VerticalOptions="Center"  IsEnabled="False" 
+                       Grid.Row="0" Grid.Column="1" />-->
+                    <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
+                        <Entry Text="asdfasdf"  VerticalOptions="Center" IsEnabled="False"  Placeholder="Issue Id" x:Name="complaintDetailIssueId" PlaceholderColor="Black"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="IssueId"
+                       FontSize="14"
+                       Keyboard="Text" />
+                    </Frame>
+
+                    <Label VerticalOptions="Center" Text="PAN number" FontAttributes="Bold"
+                       Grid.Row="1" Grid.Column="0" />
+                    <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
+                        <Entry Text="asdfasdf"  VerticalOptions="Center" IsEnabled="False"  Placeholder="PAN" x:Name="complaintDetailPanNumber" PlaceholderColor="Black"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="PAN"
+                       FontSize="14"
+                       Keyboard="Text" />
+                    </Frame>
+
+                    <Label  VerticalOptions="Center" Text="Name" FontAttributes="Bold"
+                       Grid.Row="2" Grid.Column="0" />
+                    <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
+                        <Entry Text="asdfasdf"  VerticalOptions="Center" IsEnabled="False"  Placeholder="Name" x:Name="complaintDetailName" PlaceholderColor="Black"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="Name"
+                       FontSize="14"
+                       Keyboard="Text" />
+                    </Frame>
+
+                    <Label VerticalOptions="Center" Text="UCC" FontAttributes="Bold"
+                       Grid.Row="3" Grid.Column="0" />
+                    <Frame Grid.Row="3" Grid.Column="1" BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
+                        <Entry Text="asdfasdf"  VerticalOptions="Center" IsEnabled="False"  Placeholder="UCC" x:Name="complaintDetailUcc" PlaceholderColor="Black"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="UCC"
+                       FontSize="14"
+                       Keyboard="Text" />
+                    </Frame>
+
+                    <Label VerticalOptions="Center" Text="Issue Date" FontAttributes="Bold"
+                       Grid.Row="4" Grid.Column="0" />
+                    <Frame Grid.Row="4" Grid.Column="1" BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
+                        <Entry Text="asdfasdf"  VerticalOptions="Center" IsEnabled="False"  Placeholder="Issue Date" x:Name="complaintDetailIssueDate" PlaceholderColor="Black"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="Date"
+                       FontSize="14"
+                       Keyboard="Text" />
+                    </Frame>
+
+                    <Label VerticalOptions="Center" Text="Mode" FontAttributes="Bold"
+                       Grid.Row="5" Grid.Column="0" />
+                    <Frame Grid.Row="5" Grid.Column="1" BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
+                        <Entry Text="asdfasdf"  VerticalOptions="Center" IsEnabled="False"  Placeholder="Mode" x:Name="complaintDetailMode" PlaceholderColor="Black"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="Mode"
+                       FontSize="14"
+                       Keyboard="Text" />
+                    </Frame>
+
+                    <Label VerticalOptions="Center" Text="Exchange" FontAttributes="Bold"
+                       Grid.Row="6" Grid.Column="0" />
+                    <Frame Grid.Row="6" Grid.Column="1" BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
+                        <Entry Text="asdfasdf"  VerticalOptions="Center" IsEnabled="False"  Placeholder="Exchange" x:Name="complaintDetailExchange" PlaceholderColor="Black"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="Exchange"
+                       FontSize="14"
+                       Keyboard="Text" />
+                    </Frame>
+
+                    <Label VerticalOptions="Center" Text="Segment Type" FontAttributes="Bold"
+                       Grid.Row="7" Grid.Column="0" />
+                    <Frame Grid.Row="7" Grid.Column="1" BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
+                        <Entry Text="asdfasdf"  VerticalOptions="Center" IsEnabled="False"  Placeholder="Segment Type" x:Name="complaintDetailSegmentType" PlaceholderColor="Black"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="SegmentType"
+                       FontSize="14"
+                       Keyboard="Text" />
+                    </Frame>
+
+                    <Label VerticalOptions="Center" Text="Category" FontAttributes="Bold"
+                       Grid.Row="8" Grid.Column="0" />
+                    <Frame Grid.Row="8" Grid.Column="1" BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
+                        <Entry Text="asdfasdf"  VerticalOptions="Center" IsEnabled="False"  Placeholder="Category" x:Name="complaintDetailCategory" PlaceholderColor="Black"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="Category"
+                       FontSize="14"
+                       Keyboard="Text" />
+                    </Frame>
+
+                    <Label VerticalOptions="Center" Text="Sub Category" FontAttributes="Bold"
+                       Grid.Row="9" Grid.Column="0" />
+                    <Frame Grid.Row="9" Grid.Column="1" BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
+                        <Entry Text="asdfasdf"  VerticalOptions="Center" IsEnabled="False"  Placeholder="Sub Category" x:Name="complaintDetailSubCategory" PlaceholderColor="Black"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="SubCategory"
+                       FontSize="14"
+                       Keyboard="Text" />
+                    </Frame>
+
+                    <Label VerticalOptions="Center" Text="Issue Summary" FontAttributes="Bold"
+                       Grid.Row="10" Grid.Column="0" />
+                    <Frame Grid.Row="10" Grid.Column="1" BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
+                        <Entry Text="asdfasdf"  VerticalOptions="Center" IsEnabled="False"  Placeholder="Issue Summary" x:Name="complaintDetailIssueSummary" PlaceholderColor="Black"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="IssueSummary"
+                       FontSize="14"
+                       Keyboard="Text" />
+                    </Frame>
+
+                    <Label VerticalOptions="Center" Text="Issue Details" FontAttributes="Bold"
+                       Grid.Row="11" Grid.Column="0" />
+                    <Frame Grid.Row="11" Grid.Column="1" BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
+                        <Entry Text="asdfasdf"  VerticalOptions="Center" IsEnabled="False"  Placeholder="Issue Details" x:Name="complaintDetailIssueDetails" PlaceholderColor="Black"
+                       SemanticProperties.HeadingLevel="Level2" SemanticProperties.Description="IssueDetails"
+                       FontSize="14"
+                       Keyboard="Text" />
+                    </Frame>
+
+
+                    <Label VerticalOptions="Center" Text="Status" FontAttributes="Bold" Grid.Row="12" Grid.Column="0" />
+                    <Picker x:Name="complaintDetailStatus" Title="Select Status" Grid.Row="12" Grid.Column="1" HeightRequest="100" Grid.ColumnSpan="2" />
+
+                    <Label VerticalOptions="Center" Text="Add Note" FontAttributes="Bold" Grid.Row="13" Grid.Column="0"/>
+
+                    <Frame Grid.Row="13" Grid.Column="1" BackgroundColor="WhiteSmoke" CornerRadius="5" Padding="0" HasShadow="True">
+                        <Entry x:Name="complaintDetailAddNoteField" HeightRequest="1000" Placeholder="Enter Note"
+                               />
+                    </Frame>
+
+                    <Button x:Name="addNoteSubmit"  Text="Submit" Clicked="addNoteSubmit_Clicked"
+                                Grid.Row="14" Grid.Column="0" HeightRequest="40" Grid.ColumnSpan="2"/>
+                    
+
+
+                </Grid>
+
+
+
+                <!--<Grid Padding="20">
+                
+                    <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    -->
+                <!-- Add more row definitions as needed -->
+                <!--
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="addComplaintTitle" Text="Complaint Details" FontSize="Title" 
+                       Grid.ColumnSpan="2" />
+
+                <Label x:Name="complaintDetailIssueIdTxt" Text="Issue ID" FontAttributes="Bold"
+                       Grid.Row="1" Grid.Column="0" />
+                <Entry x:Name="complaintDetailIssueId" IsEnabled="False" 
+                       Grid.Row="1" Grid.Column="1" />
+
+                -->
+                <!-- Add more labels and entries in the grid, following a similar pattern -->
+                <!-- For example: -->
+                <!--
+                <Label x:Name="complaintDetailPanNumberTxt" Text="PAN Number:" FontAttributes="Bold"
+                       Grid.Row="2" Grid.Column="0" />
+                <Entry x:Name="complaintDetailPanNumber" IsEnabled="False"
+                       Grid.Row="2" Grid.Column="1" />
+
+                -->
+                <!-- Continue adding labels and entries for other fields -->
+                <!--
+
+                <Picker x:Name="complaintDetailStatus" Title="Select Status"
+                        IsEnabled="False"
+                        Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                <Button x:Name="addNoteButton" Text="Add Note" Clicked="addNoteButton_Clicked"
+                        Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                <StackLayout x:Name="addNoteLayout" IsVisible="False"
+                             Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Entry x:Name="complaintDetailAddNoteField" Placeholder="Enter Note" />
+
+                    <Button x:Name="addNoteSubmit" Text="Submit" Clicked="addNoteSubmit_Clicked" />
+                </StackLayout>
+
+                <ImageButton x:Name="complaintDetailBack"
+                             Source="back.png"
+                             BackgroundColor="Transparent"
+                             Clicked="complaintDetailBack_Clicked"
+                             Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                -->
+                <!-- Add the table view or other view for displaying notes here -->
+                <!--
+
+            </Grid>-->
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -9,7 +9,7 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:LoginPage}"
+        ContentTemplate="{DataTemplate local:SearchView}"
         Route="MainPage" />
 
     <FlyoutItem Route="HomePage" FlyoutDisplayOptions="AsMultipleItems">

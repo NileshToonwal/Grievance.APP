@@ -35,7 +35,7 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\mainlogo.jpg" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -49,12 +49,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\avatar.png" />
-	  <None Remove="Resources\Images\dashboard.svg" />
-	  <None Remove="Resources\Images\editissue.svg" />
-	  <None Remove="Resources\Images\newarit.jpg" />
-	  <None Remove="Resources\Images\rk.jpg" />
-	  <None Remove="Resources\Images\viewissue.svg" />
+		<None Remove="Resources\Images\avatar.png" />
+		<None Remove="Resources\Images\bc.jpg" />
+		<None Remove="Resources\Images\dashboard.svg" />
+		<None Remove="Resources\Images\editissue.svg" />
+		<None Remove="Resources\Images\newarit.jpg" />
+		<None Remove="Resources\Images\rk.jpg" />
+		<None Remove="Resources\Images\viewissue.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -64,36 +65,39 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\AboutPage.xaml.cs">
-	    <DependentUpon>AboutPage.xaml</DependentUpon>
-	  </Compile>
+		<Compile Update="Views\AboutPage.xaml.cs">
+			<DependentUpon>AboutPage.xaml</DependentUpon>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="ClinetDashBorad.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="DashboardPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="LoginPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="RegistrationPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="ReportIssue.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\ContactPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\HomePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\AboutPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+		<MauiXaml Update="ClinetDashBorad.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="DashboardPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="LoginPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="RegistrationPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="ReportView.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="SearchView.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\ContactPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\HomePage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\AboutPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 	</ItemGroup>
 
 </Project>

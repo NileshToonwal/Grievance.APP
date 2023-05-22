@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Grievance.SearchView"
+             Title="SearchView">
+    <ContentPage.Content>
+        <StackLayout Spacing="15" Padding="20">
+            <Grid Margin="15,25,10,10" RowSpacing="10" RowDefinitions="30,30,30" ColumnDefinitions=".5*,.5*" HeightRequest="35">
+                <Entry x:Name="dashboardFilterSearch" Placeholder="Search" Grid.Row="0" Grid.Column="0" HeightRequest="35" />
+                <Entry x:Name="dashboardFilterIssueId" Placeholder="Issue ID" Grid.Row="0" Grid.Column="1" HeightRequest="35" />
+                <Picker x:Name="dashboardFilterStatus" Title="Select Status" Grid.Row="1" Grid.Column="0" HeightRequest="35">
+                    <!-- Add options for the dashboardFilterStatus spinner here -->
+                </Picker>
+                <Picker x:Name="dashboardFilterIssuedBy" Title="Select Issued By" Grid.Row="1" Grid.Column="1" >
+                    <!-- Add options for the dashboardFilterIssuedBy spinner here -->
+                </Picker>
+
+                <Button x:Name="dashboardSearchButton" Text="Search" HeightRequest="35" Clicked="dashboardSearchButton_Clicked_1" Grid.Row="2" Grid.Column="1"/>
+
+                <CollectionView x:Name="complaintList" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+                    <!-- Define your item template and bindings for the complaintList RecyclerView here -->
+                    <!-- For example, you can use a DataTemplate with a Grid layout and bind to your data properties -->
+                </CollectionView>
+            </Grid>
+
+
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
